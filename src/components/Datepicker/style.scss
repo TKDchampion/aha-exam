@@ -32,6 +32,10 @@
 
 .calendar-arrow {
   cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+  outline: none;
 }
 
 .calendar-body {
@@ -117,6 +121,10 @@
 .calendar-button {
   cursor: pointer;
   margin: 20px 0px;
+  color: white;
+  background: none;
+  border: none;
+  outline: none;
   &.ok {
     margin-left: 70px;
     margin-right: 24px;
