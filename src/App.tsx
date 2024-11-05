@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import { lazy, Suspense } from 'react';
 import './App.css';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 function App() {
+  const Demo = lazy(() => import('./pages/Demo'));
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<div>loading</div>}>
+      <div className="container-fluid appBox">
+        <Routes>
+          <Route path="/demo" element={<Demo />} />
+          <Route path="/" element={<Navigate to="demo" />} />
+          <Route
+            path="*"
+            element={<div className="not-found">not found</div>}
+          />
+        </Routes>
+      </div>
+    </Suspense>
   );
 }
 

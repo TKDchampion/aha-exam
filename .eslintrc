@@ -33,6 +33,7 @@
         "tsx": "never"
       }
     ],
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+     "import/no-extraneous-dependencies": "off"
   }
 }
