@@ -58,9 +58,9 @@ function InputElement({
               return (
                 <div className="input-panel-item" key={item.id}>
                   {item.isChecked ? (
-                    <img src={checkedIcon} alt="" />
+                    <img src={checkedIcon} alt="checkedIcon" />
                   ) : (
-                    <img src={unCheckedIcon} alt="" />
+                    <img src={unCheckedIcon} alt="unCheckedIcon" />
                   )}
                   <div className="input-panel-item-text">{item.text}</div>
                 </div>

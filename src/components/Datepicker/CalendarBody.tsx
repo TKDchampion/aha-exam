@@ -16,7 +16,9 @@ export default function CalendarBody({
     <div className="calendar-body">
       <div className="calendar-body-week-day">
         {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map((day) => (
-          <div key={day}>{day}</div>
+          <div className="calendar-body-week-item" key={day}>
+            {day}
+          </div>
         ))}
       </div>
       <div className="calendar-body-days">

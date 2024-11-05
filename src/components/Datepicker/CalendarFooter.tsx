@@ -7,7 +7,11 @@ export default function CalendarFooter({
 }: CalendarFooterProps) {
   return (
     <div className="d-flex mt-3 justify-content-end">
-      <button type="button" className="calendar-button" onClick={onCancel}>
+      <button
+        type="button"
+        className="calendar-button cancel"
+        onClick={onCancel}
+      >
         Cancel
       </button>
       <button type="button" className="calendar-button ok" onClick={onOk}>

@@ -6,7 +6,7 @@
   width: 320px;
   height: 469px;
   background-color: $calendarColor;
-  padding: 17px 24px;
+  // padding: 17px 24px;
 }
 
 .calendar-txt {
@@ -14,6 +14,8 @@
   background: transparent;
   border: none;
   color: white;
+  margin-left: 24px;
+  margin-top: 17px;
 
   &:focus {
     outline: none;
@@ -23,6 +25,7 @@
 .calendar-title {
   font-size: $fontSizeXXXl;
   font-weight: 700;
+  margin: 4px 24px 11px 24px;
 }
 
 .calendar-sub-title {
@@ -36,18 +39,23 @@
   background: none;
   border: none;
   outline: none;
+  width: 48px;
+  height: 48px;
 }
 
 .calendar-body {
   position: relative;
+  padding: 0 16px;
 }
 
 .calendar-body-week-day {
   opacity: 0.5;
   display: grid;
   text-align: center;
-  grid-template-columns: repeat(7, 1fr);
-  font-size: $fontSizeXs;
+  grid-template-columns: repeat(7, 1fr); /* Set each column width to 36px */
+  font-size: $fontSizeSs;
+  margin-bottom: 12px;
+  margin-top: 8px;
 }
 
 .calendar-body-days {
@@ -58,7 +66,7 @@
 }
 
 .calendar-body-week-item {
-  height: 36px;
+  height: 13px;
   width: 36px;
 }
 
@@ -120,13 +128,21 @@
 
 .calendar-button {
   cursor: pointer;
-  margin: 20px 0px;
+  padding: 8px;
   color: white;
   background: none;
   border: none;
   outline: none;
+  font-size: $fontSizeXs;
+
   &.ok {
-    margin-left: 70px;
-    margin-right: 24px;
+    width: 53px;
+    height: 40px;
+    margin-left: 38px;
+    margin-right: 27px;
+  }
+  &.cancel {
+    width: 80px;
+    height: 40px;
   }
 }

@@ -1,6 +1,8 @@
 import moment from 'moment';
 import './style.scss';
 import { CalendarHeaderProps } from './model';
+import leftArrow from '../../assets/icons/leftArrow.svg';
+import rightArrow from '../../assets/icons/rightArrow.svg';
 
 export default function CalendarHeader({
   monthYear,
@@ -13,13 +15,13 @@ export default function CalendarHeader({
       <div className="calendar-title">
         {moment(monthYear).format('MMM, YYYY')}
       </div>
-      <div className="d-flex justify-content-between mt-4 mb-4">
+      <div className="d-flex justify-content-between align-items-center">
         <button
           type="button"
           className="calendar-arrow"
           onClick={() => onChangeMonth(-1)}
         >
-          {'<'}
+          <img src={leftArrow} alt="leftArrow" />
         </button>
         <div
           onClick={onToggleYearPicker}
@@ -36,7 +38,7 @@ export default function CalendarHeader({
           className="calendar-arrow"
           onClick={() => onChangeMonth(1)}
         >
-          {'>'}
+          <img src={rightArrow} alt="rightArrow" />
         </button>
       </div>
     </div>
