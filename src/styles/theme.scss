@@ -1,0 +1,14 @@
+@use 'variables' as vars; // Use a namespace like `vars` to avoid conflicts
+
+body {
+  font-family: vars.$defaultFontFamily;
+  background-color: vars.$bodyColor;
+}
+
+h1 {
+  color: vars.$hoverColor;
+}
+
+h2 {
+  color: vars.$hoverColor;
+}
