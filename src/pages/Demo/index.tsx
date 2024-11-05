@@ -1,3 +1,5 @@
+import AdvanceComponent from '../../components/Advance-component';
+import DatepickerCompanent from '../../components/Datepicker-component';
 import InputComponent from '../../components/Input-component';
 
 function Demo() {
@@ -9,14 +11,14 @@ function Demo() {
           <h2>Password Input</h2>
           <InputComponent isPassword />
         </div>
-        {/* <div className="col-4">
+        <div className="col-4">
           <h2>Calendar</h2>
-          <CalendarCompanent />
+          <DatepickerCompanent openCalendar />
         </div>
         <div className="col-4">
           <h2>Calendar</h2>
           <AdvanceComponent />
-        </div> */}
+        </div>
       </div>
     </div>
   );
