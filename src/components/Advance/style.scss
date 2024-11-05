@@ -1,6 +1,7 @@
 @import '../../styles/variables.scss';
 
 .advance-input {
+  margin-bottom: 14px;
   & input {
     &:hover {
       border: 3px solid $enabledColor;
