@@ -8,7 +8,7 @@ import getWeeksInMonth from '../../utils/list-days';
 const nowMonthYear = moment().format('MMMM YYYY');
 const nowDay = moment().format('DD');
 
-function DatepickerCompanent({ okAndCancel, openCalendar }: Props) {
+function Datepicker({ okAndCancel, openCalendar }: Props) {
   const [days, setDays] = useState<number[]>([]);
   const [monthYear, setMonthYear] = useState('');
   const [selectDate, setSelectDate] = useState({
@@ -247,4 +247,4 @@ function DatepickerCompanent({ okAndCancel, openCalendar }: Props) {
   );
 }
 
-export default DatepickerCompanent;
+export default Datepicker;

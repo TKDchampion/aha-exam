@@ -1,6 +1,6 @@
-import AdvanceComponent from '../../components/Advance-component';
-import DatepickerCompanent from '../../components/Datepicker-component';
-import InputComponent from '../../components/Input-component';
+import Advance from '../../components/Advance';
+import Datepicker from '../../components/Datepicker';
+import InputElement from '../../components/Input-element';
 
 function Demo() {
   return (
@@ -9,15 +9,15 @@ function Demo() {
       <div className="row">
         <div className="col-4">
           <h2>Password Input</h2>
-          <InputComponent isPassword />
+          <InputElement isPassword />
         </div>
         <div className="col-4">
           <h2>Calendar</h2>
-          <DatepickerCompanent openCalendar />
+          <Datepicker openCalendar />
         </div>
         <div className="col-4">
           <h2>Calendar</h2>
-          <AdvanceComponent />
+          <Advance />
         </div>
       </div>
     </div>

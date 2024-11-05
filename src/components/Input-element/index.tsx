@@ -11,7 +11,7 @@ import {
   verifyUpcase,
 } from '../../utils/verify';
 
-function InputComponent({
+function InputElement({
   isPassword,
   onChange,
   onFocus,
@@ -71,4 +71,4 @@ function InputComponent({
   );
 }
 
-export default InputComponent;
+export default InputElement;

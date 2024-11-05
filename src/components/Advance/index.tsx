@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import DatepickerCompanent from '../Datepicker-component';
-import InputComponent from '../Input-component';
+import Datepicker from '../Datepicker';
+import InputElement from '../Input-element';
 import './style.scss';
 
-function AdvanceComponent() {
+function Advance() {
   const [isOpenDatePicker, setIsOpenDatePicker] = useState(false);
   const [selectedDate, setSelectedDate] = useState('');
 
   return (
     <div>
-      <InputComponent
+      <InputElement
         calssName="advance-input"
         labelName="Birthday"
         onFocus={() => setIsOpenDatePicker(true)}
@@ -17,7 +17,7 @@ function AdvanceComponent() {
         // onBlur={(e) => console.log(e)}
       />
       {isOpenDatePicker && (
-        <DatepickerCompanent
+        <Datepicker
           okAndCancel={(type, date) => {
             if (type === 'ok') {
               setSelectedDate(date);
@@ -30,4 +30,4 @@ function AdvanceComponent() {
   );
 }
 
-export default AdvanceComponent;
+export default Advance;
