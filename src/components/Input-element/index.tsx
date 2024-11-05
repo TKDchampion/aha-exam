@@ -19,6 +19,7 @@ function InputElement({
   calssName,
   labelName,
   value,
+  placeholder,
 }: Props) {
   const [panelData, setPanelData] = useState(PanelInfo);
   const verifyFun = (str: string) => {
@@ -49,6 +50,7 @@ function InputElement({
           onFocus={onFocus}
           onBlur={onBlur}
           value={value}
+          placeholder={placeholder}
         />
         {isPassword && (
           <div className="input-panel">

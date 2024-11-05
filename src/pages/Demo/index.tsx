@@ -9,7 +9,7 @@ function Demo() {
       <div className="row">
         <div className="col-xl-4 col-12 mb-4">
           <h2>Password Input</h2>
-          <InputElement isPassword />
+          <InputElement isPassword placeholder="Password" />
         </div>
         <div className="col-xl-4 col-12 mb-4">
           <h2>Calendar</h2>
@@ -17,7 +17,7 @@ function Demo() {
         </div>
         <div className="col-xl-4 col-12 mb-4">
           <h2>Advanced Calendar</h2>
-          <Advance />
+          <Advance placeholder="mm/dd/yyyy" />
         </div>
       </div>
     </div>

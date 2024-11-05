@@ -3,7 +3,7 @@ import Datepicker from '../Datepicker';
 import InputElement from '../Input-element';
 import './style.scss';
 
-function Advance() {
+function Advance({ placeholder }: { placeholder: string }) {
   const [isOpenDatePicker, setIsOpenDatePicker] = useState(false);
   const [selectedDate, setSelectedDate] = useState('');
 
@@ -14,6 +14,7 @@ function Advance() {
         labelName="Birthday"
         onFocus={() => setIsOpenDatePicker(true)}
         value={selectedDate}
+        placeholder={placeholder}
         // onBlur={(e) => console.log(e)}
       />
       {isOpenDatePicker && (

@@ -18,4 +18,5 @@ export interface Props {
   calssName?: string;
   labelName?: string;
   value?: string;
+  placeholder?: string;
 }
