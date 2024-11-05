@@ -4,19 +4,19 @@ import InputElement from '../../components/Input-element';
 
 function Demo() {
   return (
-    <div>
-      <h1>Demo</h1>
+    <div className="container">
+      <h1 className="text-center">Demo</h1>
       <div className="row">
-        <div className="col-4">
+        <div className="col-xl-4 col-12 mb-4">
           <h2>Password Input</h2>
           <InputElement isPassword />
         </div>
-        <div className="col-4">
+        <div className="col-xl-4 col-12 mb-4">
           <h2>Calendar</h2>
           <Datepicker openCalendar />
         </div>
-        <div className="col-4">
-          <h2>Calendar</h2>
+        <div className="col-xl-4 col-12 mb-4">
+          <h2>Advanced Calendar</h2>
           <Advance />
         </div>
       </div>
