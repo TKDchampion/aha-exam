@@ -1,25 +1,23 @@
-// import AdvanceComponent from '../components/Advance-component';
-// import CalendarCompanent from '../components/Calendar-component';
-// import InputComponent from '../components/Input-component';
+import InputComponent from '../../components/Input-component';
 
 function Demo() {
   return (
     <div>
       <h1>Demo</h1>
-      {/* <div className="row">
+      <div className="row">
         <div className="col-4">
           <h2>Password Input</h2>
-          <InputComponent isPassword/>
+          <InputComponent isPassword />
         </div>
-        <div className="col-4">
+        {/* <div className="col-4">
           <h2>Calendar</h2>
           <CalendarCompanent />
         </div>
         <div className="col-4">
           <h2>Calendar</h2>
           <AdvanceComponent />
-        </div>
-      </div> */}
+        </div> */}
+      </div>
     </div>
   );
 }

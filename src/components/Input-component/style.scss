@@ -1,0 +1,67 @@
+@import '../../styles/variables.scss';
+
+.input-component-box {
+  position: relative;
+  color: $hoverColor;
+  font-size: $fontSizeXs;
+}
+
+.input-box {
+  position: relative;
+  color: $hoverColor;
+
+  & .input-box-label {
+    font-size: $fontSizeS;
+    position: absolute;
+    top: -8px;
+    left: 10px;
+    background-color: $bodyColor;
+    padding: 0 4px;
+  }
+
+  & input {
+    color: $hoverColor;
+    border: 3px solid $enabledColor;
+    border-radius: 8px;
+    outline: none;
+    background: transparent;
+    caret-color: $hoverColor;
+    width: 335px;
+    height: 58px;
+    padding-left: 10px;
+    font-size: $fontSizeSm;
+
+    &:hover {
+      border: 3px solid $hoverColor;
+    }
+
+    &:focus {
+      border: 3px solid $activeColor;
+
+      &+.input-panel {
+        display: block
+      }
+    }
+  }
+}
+
+.input-panel {
+  width: 335px;
+  height: 226px;
+  background-color: $panelColor;
+  position: absolute;
+  padding: 14px;
+  top: 78px;
+  display: none;
+  z-index: 1;
+
+  & .input-panel-item {
+    display: flex;
+    padding-bottom: 18px;
+  }
+
+  & .input-panel-item-text {
+    width: 226px;
+    margin-left: 12px;
+  }
+}
