@@ -15,10 +15,10 @@ function Advance() {
         onFocus={() => setIsOpenDatePicker(true)}
         value={selectedDate}
         placeholder="mm/dd/yyyy"
-        // onBlur={(e) => console.log(e)}
       />
       {isOpenDatePicker && (
         <Datepicker
+          defaultDate={selectedDate}
           okAndCancel={(type, date) => {
             if (type === 'ok') {
               setSelectedDate(date);

@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import moment from 'moment';
 import { CalendarBodyProps } from './model';
 import './style.scss';
 import CalendarYearPopup from './CalendarYearPopup';
@@ -7,12 +8,12 @@ import { useDatepicker } from '../../contexts/DatepickerContext';
 export default function CalendarBody({
   days,
   monthYear,
-  nowMonthYear,
-  nowDay,
   selectDate,
   onSelectDate,
 }: CalendarBodyProps) {
   const { state, dispatch } = useDatepicker();
+  const nowMonthYear = moment().format('MMMM YYYY');
+  const nowDay = moment().format('DD');
 
   return (
     <div className="calendar-body">

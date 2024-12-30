@@ -1,13 +1,12 @@
-export interface Props {
+export interface DatepickerProps {
   okAndCancel?: (tyep: 'cancel' | 'ok', date: string) => void;
   openCalendar?: boolean;
+  defaultDate?: string;
 }
 
 export interface CalendarBodyProps {
   days: number[];
   monthYear: string;
-  nowMonthYear: string;
-  nowDay: string;
   selectDate: { monthYear: string; day: string };
   onSelectDate: (day: number) => void;
 }
@@ -31,4 +30,9 @@ export interface CalendarArrowControlProps {
 
 export interface CalendarYearPopupProps {
   onYearSelect: (year: number) => void;
+}
+
+export interface NotesInputProps {
+  value: string;
+  onChange: (value: string) => void;
 }

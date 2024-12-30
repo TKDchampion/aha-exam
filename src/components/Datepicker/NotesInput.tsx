@@ -1,7 +1,4 @@
-interface NotesInputProps {
-  value: string;
-  onChange: (value: string) => void;
-}
+import { NotesInputProps } from './model';
 
 export default function NotesInput({ value, onChange }: NotesInputProps) {
   return (
