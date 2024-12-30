@@ -7,6 +7,7 @@ import NotesInput from './NotesInput';
 import CalendarHeader from './CalendarHeader';
 import CalendarBody from './CalendarBody';
 import CalendarFooter from './CalendarFooter';
+import DatepickerProvider from '../../contexts/DatepickerContext';
 
 function Datepicker({ okAndCancel, openCalendar }: Props) {
   const nowMonthYear = moment().format('MMMM YYYY');
@@ -20,7 +21,6 @@ function Datepicker({ okAndCancel, openCalendar }: Props) {
   });
   const [notes, setNotes] = useState<{ [key: string]: string }>({});
   const [currentNote, setCurrentNote] = useState('');
-  const [isOpenYearPicker, setIsOpenYearPicker] = useState(false);
 
   useEffect(() => {
     setDays(getWeeksInMonth(monthYear));
@@ -30,11 +30,8 @@ function Datepicker({ okAndCancel, openCalendar }: Props) {
     setCurrentNote(notes[`${selectDate.monthYear}/${selectDate.day}`] || '');
   }, [selectDate, notes]);
 
-  const changeMonth = (months: number) => {
-    const newMonthYear = moment(monthYear)
-      .add(months, 'months')
-      .format('MMMM YYYY');
-    setMonthYear(newMonthYear);
+  const changeMonth = (monthYearValue: string) => {
+    setMonthYear(monthYearValue);
   };
 
   const handleSaveNote = () => {
@@ -57,34 +54,26 @@ function Datepicker({ okAndCancel, openCalendar }: Props) {
   };
 
   return (
-    <div className="calendar-component-box">
-      {openCalendar && (
-        <NotesInput value={currentNote} onChange={setCurrentNote} />
-      )}
-      <CalendarHeader
-        monthYear={monthYear}
-        isOpenYearPicker={isOpenYearPicker}
-        onToggleYearPicker={() => setIsOpenYearPicker(!isOpenYearPicker)}
-        onChangeMonth={changeMonth}
-      />
-      <CalendarBody
-        days={days}
-        monthYear={monthYear}
-        nowMonthYear={nowMonthYear}
-        nowDay={nowDay}
-        selectDate={selectDate}
-        isOpenYearPicker={isOpenYearPicker}
-        onSelectDate={handleDateSelect}
-        onYearSelect={(year) => {
-          setMonthYear(`${monthYear.split(' ')[0]} ${year}`);
-          setIsOpenYearPicker(false);
-        }}
-      />
-      <CalendarFooter
-        onCancel={() => okAndCancel?.('cancel', '')}
-        onOk={handleOk}
-      />
-    </div>
+    <DatepickerProvider>
+      <div className="calendar-component-box">
+        {openCalendar && (
+          <NotesInput value={currentNote} onChange={setCurrentNote} />
+        )}
+        <CalendarHeader monthYear={monthYear} onChangeMonth={changeMonth} />
+        <CalendarBody
+          days={days}
+          monthYear={monthYear}
+          nowMonthYear={nowMonthYear}
+          nowDay={nowDay}
+          selectDate={selectDate}
+          onSelectDate={handleDateSelect}
+        />
+        <CalendarFooter
+          onCancel={() => okAndCancel?.('cancel', '')}
+          onOk={handleOk}
+        />
+      </div>
+    </DatepickerProvider>
   );
 }
 

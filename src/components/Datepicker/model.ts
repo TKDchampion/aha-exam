@@ -9,9 +9,7 @@ export interface CalendarBodyProps {
   nowMonthYear: string;
   nowDay: string;
   selectDate: { monthYear: string; day: string };
-  isOpenYearPicker: boolean;
   onSelectDate: (day: number) => void;
-  onYearSelect: (year: number) => void;
 }
 
 export interface CalendarFooterProps {
@@ -21,7 +19,16 @@ export interface CalendarFooterProps {
 
 export interface CalendarHeaderProps {
   monthYear: string;
-  isOpenYearPicker: boolean;
-  onToggleYearPicker: () => void;
-  onChangeMonth: (months: number) => void;
+  onChangeMonth: (months: string) => void;
+}
+
+export interface CalendarArrowControlProps {
+  prevBtn: () => void;
+  nextBtn: () => void;
+  onToggleTitle: () => void;
+  title: string;
+}
+
+export interface CalendarYearPopupProps {
+  onYearSelect: (year: number) => void;
 }

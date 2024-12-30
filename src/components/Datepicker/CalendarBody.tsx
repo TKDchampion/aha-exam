@@ -1,6 +1,8 @@
 import classNames from 'classnames';
 import { CalendarBodyProps } from './model';
 import './style.scss';
+import CalendarYearPopup from './CalendarYearPopup';
+import { useDatepicker } from '../../contexts/DatepickerContext';
 
 export default function CalendarBody({
   days,
@@ -8,10 +10,10 @@ export default function CalendarBody({
   nowMonthYear,
   nowDay,
   selectDate,
-  isOpenYearPicker,
   onSelectDate,
-  onYearSelect,
 }: CalendarBodyProps) {
+  const { state, dispatch } = useDatepicker();
+
   return (
     <div className="calendar-body">
       <div className="calendar-body-week-day">
@@ -31,7 +33,7 @@ export default function CalendarBody({
             {
               active:
                 selectDate?.monthYear === monthYear &&
-                selectDate?.day === day.toString(),
+                selectDate?.day === day.toString().padStart(2, '0'),
             },
           );
           const dayIndex = `${day}+${index}`;
@@ -51,22 +53,13 @@ export default function CalendarBody({
           );
         })}
       </div>
-      {isOpenYearPicker && (
-        <div className="calendar-body-year-picker">
-          {Array.from({ length: 20 }, (_, i) => 2021 + i).map((year) => (
-            <div
-              key={year}
-              onClick={() => onYearSelect(year)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') onYearSelect(year);
-              }}
-            >
-              {year}
-            </div>
-          ))}
-        </div>
+      {state.isOpenYearPage && (
+        <CalendarYearPopup
+          onYearSelect={(year) => {
+            dispatch({ type: 'SET_YEAR', payload: { year } });
+            dispatch({ type: 'CLOSE_YEAR_PAGE' });
+          }}
+        />
       )}
     </div>
   );

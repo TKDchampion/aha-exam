@@ -1,46 +1,63 @@
+import { useEffect } from 'react';
 import moment from 'moment';
 import './style.scss';
 import { CalendarHeaderProps } from './model';
-import leftArrow from '../../assets/icons/leftArrow.svg';
-import rightArrow from '../../assets/icons/rightArrow.svg';
+import CalendarArrowControl from './CalendarArrowControl';
+import { useDatepicker } from '../../contexts/DatepickerContext';
 
 export default function CalendarHeader({
   monthYear,
-  isOpenYearPicker,
-  onToggleYearPicker,
   onChangeMonth,
 }: CalendarHeaderProps) {
+  const { state, dispatch } = useDatepicker();
+
+  const handleMonth = (monthIndex: number) => {
+    const newMonthYear = moment(monthYear)
+      .add(monthIndex, 'months')
+      .format('MMMM YYYY');
+    onChangeMonth(newMonthYear);
+    dispatch({
+      type: 'SET_YEAR',
+      payload: { year: parseInt(newMonthYear.split(' ')[1], 10) },
+    });
+  };
+
+  const handleYear = (yearIndex: number) => {
+    dispatch({
+      type: 'SET_START_AND_END_YEAR',
+      payload: {
+        startYear: yearIndex > 0 ? state.startYear + 21 : state.startYear - 21,
+      },
+    });
+  };
+
+  const handleControl = (index: number) => {
+    if (state.isOpenYearPage) {
+      handleYear(index);
+    } else {
+      handleMonth(index);
+    }
+  };
+
+  useEffect(() => {
+    onChangeMonth(`${monthYear.split(' ')[0]} ${state.year}`);
+  }, [state.year]);
+
   return (
     <div>
       <div className="calendar-title">
         {moment(monthYear).format('MMM, YYYY')}
       </div>
-      <div className="d-flex justify-content-between align-items-center">
-        <button
-          type="button"
-          className="calendar-arrow"
-          onClick={() => onChangeMonth(-1)}
-        >
-          <img src={leftArrow} alt="leftArrow" />
-        </button>
-        <div
-          onClick={onToggleYearPicker}
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') onToggleYearPicker();
-          }}
-        >
-          {isOpenYearPicker ? monthYear.split(' ')[1] : monthYear}
-        </div>
-        <button
-          type="button"
-          className="calendar-arrow"
-          onClick={() => onChangeMonth(1)}
-        >
-          <img src={rightArrow} alt="rightArrow" />
-        </button>
-      </div>
+      <CalendarArrowControl
+        prevBtn={() => handleControl(-1)}
+        nextBtn={() => handleControl(1)}
+        onToggleTitle={() =>
+          dispatch({
+            type: state.isOpenYearPage ? 'CLOSE_YEAR_PAGE' : 'OPEN_YEAR_PAGE',
+          })
+        }
+        title={state.isOpenYearPage ? state.year.toString() : monthYear}
+      />
     </div>
   );
 }

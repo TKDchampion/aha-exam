@@ -20,7 +20,7 @@ export const verifyNumber = (str: string) => {
 };
 
 export const verifyCharacter = (str: string) => {
-  const re = /[!@#$%&]/g;
+  const re = /[^a-zA-Z0-9]/g;
   const found = str.match(re);
 
   return !!found;
