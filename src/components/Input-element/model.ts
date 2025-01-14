@@ -7,7 +7,7 @@ export const PanelInfo = [
     text: 'Have at least one special character (!@#$...etc)',
     isChecked: false,
   },
-  { id: 5, text: 'Longer than 8 characters', isChecked: false },
+  { id: 5, text: 'At least 8 characters long.', isChecked: false },
 ];
 
 export interface Props {

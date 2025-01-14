@@ -29,7 +29,7 @@ function InputElement({
       copyData[1].isChecked = verifyLowcase(str);
       copyData[2].isChecked = verifyNumber(str);
       copyData[3].isChecked = verifyCharacter(str);
-      copyData[4].isChecked = str.length > 8;
+      copyData[4].isChecked = str.length >= 8;
       setPanelData(copyData);
     }
     if (onChange) {
